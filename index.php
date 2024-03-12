@@ -12,10 +12,10 @@
 <h2>Registration Form</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         Username: <input type="text" name="username">
-        <span class="error">* <?php echo $usernameErr;?></span>
+        <span class="error"></span>
         <br><br>
         Password: <input type="password" name="password">
-        <span class="error">* <?php echo $passwordErr;?></span>
+        <span class="error"></span>
         <br><br>
         <input type="submit" name="submit" value="Register">
     </form>
