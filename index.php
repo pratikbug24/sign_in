@@ -4,22 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    <style rel="stylesheet" href="php.css"></style>
+    <link rel="stylesheet" href="php.css">
 </head>
 <body>
-    <center>
+    
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <h1>Registration Form</h1>
     <div class="input-field">
-        Username: <input type="text" name="username">
-        <span class="error"></span>
-        <br><br>
-        Password: <input type="password" name="password">
-        <span class="error"></span>
-        <br><br>
+    <div class="input-field">
+        <input type="text" name="username" required>
+        <label>Enter your Username</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="password" required>
+        <label>Enter your password</label>
+      </div>
         <input type="submit" name="submit" value="Register">
        </form>
-    </center>
     <?php
         $servername = "localhost";
         $username = "root";
