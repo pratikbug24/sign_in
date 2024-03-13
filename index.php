@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
-    <style>
-        .error { color: red; }
-    </style>
+    <style rel="stylesheet" href="php.css"></style>
 </head>
 <body>
-<h2>Registration Form</h2>
+    <center>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <h1>Registration Form</h1>
+    <div class="input-field">
         Username: <input type="text" name="username">
         <span class="error"></span>
         <br><br>
@@ -18,7 +18,8 @@
         <span class="error"></span>
         <br><br>
         <input type="submit" name="submit" value="Register">
-    </form>
+       </form>
+    </center>
     <?php
         $servername = "localhost";
         $username = "root";
@@ -47,10 +48,7 @@
                 $password = test_input($_POST["password"]);
             }
 
-            if ($username && $password) {
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-                $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hashed_password')";
+                $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
 
                 if ($conn->query($sql) === TRUE) {
                     echo "Registration successful!";
@@ -58,7 +56,6 @@
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
             }
-        }
 
         function test_input($data) {
             $data = trim($data);
